@@ -318,13 +318,44 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
             
-            context.fill(barRect)
-            
-            if drawBorder
+            if dataProvider.isDrawRoundedBarEnabled
             {
-                context.setStrokeColor(borderColor.cgColor)
-                context.setLineWidth(borderWidth)
-                context.stroke(barRect)
+                
+                func getCornerRadiusSize() -> CGSize {
+                    if let barCornerRadius = dataProvider.barData?.barCornerRadius {
+                        return CGSize(width: barCornerRadius, height: barCornerRadius)
+                    } else {
+                        return CGSize(width: barRect.width / 2.0, height: barRect.width / 2.0)
+                    }
+                }
+                let cornerRadius = getCornerRadiusSize()
+                #if os(OSX)
+                    let bezierPath = NSBezierPath(roundedRect: barRect, xRadius: cornerRadius.width, yRadius: cornerRadius.height)
+                    context.addPath(bezierPath.cgPath)
+                #else
+                    let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: dataSet.barRoundingCorners, cornerRadii: cornerRadius)
+                    context.addPath(bezierPath.cgPath)
+                #endif
+                context.fillPath()
+                
+                if drawBorder
+                {
+                    bezierPath.lineWidth = borderWidth
+                    borderColor.setStroke()
+                    bezierPath.stroke()
+                }
+            }
+            else
+            {
+                
+                context.fill(barRect)
+                
+                if drawBorder
+                {
+                    context.setStrokeColor(borderColor.cgColor)
+                    context.setLineWidth(borderWidth)
+                    context.stroke(barRect)
+                }
             }
         }
         
