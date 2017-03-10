@@ -319,8 +319,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             }
             
             if dataProvider.isDrawBarShadowOffsetEnabled {
-                print("--draw shadow here--")
-                context.setShadow(offset: CGSize(width: 2, height: 0), blur: 0, color: UIColor.red.cgColor)
+                context.setShadow(offset: dataSet.barShadowOffsetSize, blur: dataSet.barShadowOffsetBlur, color: dataSet.barShadowOffsetColor.cgColor)
             }
             
             if dataProvider.isDrawRoundedBarEnabled

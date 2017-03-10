@@ -37,6 +37,15 @@ public protocol IBarChartDataSet: IBarLineScatterCandleBubbleChartDataSet
     #if !os(OSX)
     var barRoundingCorners: UIRectCorner { get set }
     #endif
+    
+    /// the color drawing for shadow offset behind the bars
+    var barShadowOffsetColor: NSUIColor { get set }
+    
+    /// the shadow offset size
+    var barShadowOffsetSize: CGSize { get set }
+    
+    /// the shadow offset blur
+    var barShadowOffsetBlur: CGFloat { get set }
 
     /// the alpha value (transparency) that is used for drawing the highlight indicator bar. min = 0.0 (fully transparent), max = 1.0 (fully opaque)
     var highlightAlpha: CGFloat { get set }
