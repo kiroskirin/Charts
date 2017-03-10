@@ -25,6 +25,9 @@ open class CombinedChartRenderer: DataRenderer
     /// if set to true, a rounded rectangle with the corners is drawn on each bar
     open var drawRoundedBarEnabled = false
     
+    /// if set to true, a shadow offset is drawn on each bar
+    open var drawBarShadowOffsetEnabled = false
+    
     internal var _renderers = [DataRenderer]()
     
     internal var _drawOrder: [CombinedChartView.DrawOrder] = [.bar, .bubble, .line, .candle, .scatter]

@@ -318,6 +318,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
             
+            if dataProvider.isDrawBarShadowOffsetEnabled {
+                print("--draw shadow here--")
+                context.setShadow(offset: CGSize(width: 2, height: 0), blur: 0, color: UIColor.red.cgColor)
+            }
+            
             if dataProvider.isDrawRoundedBarEnabled
             {
                 
@@ -718,7 +723,29 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 
                 setHighlightDrawPos(highlight: high, barRect: barRect)
                 
-                context.fill(barRect)
+                if dataProvider.isDrawRoundedBarEnabled
+                {
+                    func getCornerRadiusSize() -> CGSize {
+                        if let barCornerRadius = dataProvider.barData?.barCornerRadius {
+                            return CGSize(width: barCornerRadius, height: barCornerRadius)
+                        } else {
+                            return CGSize(width: barRect.width / 2.0, height: barRect.width / 2.0)
+                        }
+                    }
+                    let cornerRadius = getCornerRadiusSize()
+                    #if os(OSX)
+                        let bezierPath = NSBezierPath(roundedRect: barRect, xRadius: cornerRadius.width, yRadius: cornerRadius.height)
+                        context.addPath(bezierPath.cgPath)
+                    #else
+                        let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: set.barRoundingCorners, cornerRadii: cornerRadius)
+                        context.addPath(bezierPath.cgPath)
+                    #endif
+                    context.fillPath()
+                }
+                else
+                {
+                    context.fill(barRect)
+                }
             }
         }
         

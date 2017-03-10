@@ -203,6 +203,13 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
         set { (renderer as! CombinedChartRenderer!).drawRoundedBarEnabled = newValue }
     }
     
+    /// if set to true, a shadow offset is drawn on each bar
+    open var drawBarShadowOffsetEnabled: Bool
+        {
+        get { return (renderer as! CombinedChartRenderer!).drawBarShadowOffsetEnabled }
+        set { (renderer as! CombinedChartRenderer!).drawBarShadowOffsetEnabled = newValue }
+    }
+    
     /// - returns: `true` if drawing values above bars is enabled, `false` ifnot
     open var isDrawValueAboveBarEnabled: Bool { return (renderer as! CombinedChartRenderer!).drawValueAboveBarEnabled }
     
@@ -232,4 +239,7 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
     
     /// - returns: `true` if drawing rounded bars is enabled, `false` ifnot
     open var isDrawRoundedBarEnabled: Bool { return drawRoundedBarEnabled }
+    
+    /// - returns: `true` if drawing rounded bars is enabled, `false` ifnot
+    open var isDrawBarShadowOffsetEnabled: Bool { return drawBarShadowOffsetEnabled }
 }

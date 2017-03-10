@@ -24,6 +24,9 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     /// if set to true, a rounded rectangle with the corners is drawn on each bar
     fileprivate var _drawRoundedBarEnabled = false
     
+    /// if set to true, a shadow offset is drawn on each bar
+    fileprivate var _drawBarShadowOffsetEnabled = false
+    
     internal override func initialize()
     {
         super.initialize()
@@ -174,6 +177,17 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
         }
     }
     
+    /// if set to true, a shadow offset is drawn on each bar
+    open var drawBarShadowOffsetEnabled: Bool
+        {
+        get { return _drawBarShadowOffsetEnabled }
+        set
+        {
+            _drawBarShadowOffsetEnabled = newValue
+            setNeedsDisplay()
+        }
+    }
+    
     /// Adds half of the bar width to each side of the x-axis range in order to allow the bars of the barchart to be fully displayed.
     /// **default**: false
     open var fitBars = false
@@ -197,4 +211,7 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     
     /// - returns: `true` if drawing rounded bars is enabled, `false` ifnot
     open var isDrawRoundedBarEnabled: Bool { return drawRoundedBarEnabled }
+    
+    /// - returns: `true` if drawing shadow offset bars is enabled, `false` ifnot
+    open var isDrawBarShadowOffsetEnabled: Bool { return drawBarShadowOffsetEnabled }
 }
