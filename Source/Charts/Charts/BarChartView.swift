@@ -27,6 +27,9 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     /// if set to true, a shadow offset is drawn on each bar
     fileprivate var _drawBarShadowOffsetEnabled = false
     
+    /// if set to true, a shadow offset is drawn on each highlight bar
+    fileprivate var _drawHiglightShadowOffsetEnabled = false
+    
     internal override func initialize()
     {
         super.initialize()
@@ -188,6 +191,17 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
         }
     }
     
+    /// if set to true, a shadow offset is drawn on each highlight bar
+    open var drawHighlightShadowOffsetEnabled: Bool
+        {
+        get { return _drawHiglightShadowOffsetEnabled }
+        set
+        {
+            _drawHiglightShadowOffsetEnabled = newValue
+            setNeedsDisplay()
+        }
+    }
+    
     /// Adds half of the bar width to each side of the x-axis range in order to allow the bars of the barchart to be fully displayed.
     /// **default**: false
     open var fitBars = false
@@ -214,4 +228,7 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     
     /// - returns: `true` if drawing shadow offset bars is enabled, `false` ifnot
     open var isDrawBarShadowOffsetEnabled: Bool { return drawBarShadowOffsetEnabled }
+    
+    /// - returns: `true` if drawing shadow offset bars is enabled, `false` ifnot
+    open var isDrawHighlightShadowOffsetEnabled: Bool { return drawHighlightShadowOffsetEnabled }
 }

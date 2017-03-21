@@ -722,6 +722,10 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 
                 setHighlightDrawPos(highlight: high, barRect: barRect)
                 
+                if dataProvider.isDrawHighlightShadowOffsetEnabled {
+                    context.setShadow(offset: set.barShadowOffsetSize, blur: set.barShadowOffsetBlur, color: set.barShadowOffsetColor.cgColor)
+                }
+                
                 if dataProvider.isDrawRoundedBarEnabled
                 {
                     func getCornerRadiusSize() -> CGSize {
