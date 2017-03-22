@@ -245,6 +245,18 @@ public protocol IChartDataSet
     /// Returns true if y-icon drawing is enabled, false if not
     var isDrawIconsEnabled: Bool { get }
     
+    /// Set to true to draw bar shadow offset
+    var drawBarShadowOffsetEnabled: Bool { get set }
+    
+    /// Return true if bar shadow offset is enabled, false if not
+    var isDrawBarShadowOffsetEnabled: Bool { get }
+    
+    // Set to true to draw bar shadow offset
+    var drawHighlightShadowOffsetEnabled: Bool { get set }
+    
+    /// Return true if bar highlight shadow offset is enabled, false if not
+    var isDrawHighlightShadowOffsetEnabled: Bool { get }
+    
     /// Offset of icons drawn on the chart.
     ///
     /// For all charts except Pie and Radar it will be ordinary (x offset, y offset).

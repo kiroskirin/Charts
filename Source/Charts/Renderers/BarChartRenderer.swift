@@ -318,7 +318,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
             
-            if dataProvider.isDrawBarShadowOffsetEnabled {
+            if dataSet.isDrawBarShadowOffsetEnabled {
                 context.setShadow(offset: dataSet.barShadowOffsetSize, blur: dataSet.barShadowOffsetBlur, color: dataSet.barShadowOffsetColor.cgColor)
             }
             
@@ -722,7 +722,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 
                 setHighlightDrawPos(highlight: high, barRect: barRect)
                 
-                if dataProvider.isDrawHighlightShadowOffsetEnabled {
+                if set.isDrawHighlightShadowOffsetEnabled {
                     context.setShadow(offset: set.barShadowOffsetSize, blur: set.barShadowOffsetBlur, color: set.barShadowOffsetColor.cgColor)
                 }
                 

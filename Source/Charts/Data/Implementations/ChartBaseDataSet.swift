@@ -362,6 +362,24 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
     {
         return drawValuesEnabled
     }
+    
+    /// Set this to true to draw bar shadow offset on the chart.
+    open var drawBarShadowOffsetEnabled = false
+    
+    /// Returns true if bar shadow offeset drawing is enabled, false if not
+    open var isDrawBarShadowOffsetEnabled: Bool
+    {
+        return drawBarShadowOffsetEnabled
+    }
+    
+    /// Set this to true to draw highlight shadow offset on the chart.
+    open var drawHighlightShadowOffsetEnabled = false
+    
+    /// Returns true if highlight shadow offeset drawing is enabled, false if not
+    open var isDrawHighlightShadowOffsetEnabled: Bool
+    {
+        return drawHighlightShadowOffsetEnabled
+    }
 
     /// Set this to true to draw y-icons on the chart.
     ///

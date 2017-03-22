@@ -26,10 +26,10 @@ open class CombinedChartRenderer: DataRenderer
     open var drawRoundedBarEnabled = false
     
     /// if set to true, a shadow offset is drawn on each bar
-    open var drawBarShadowOffsetEnabled = false
+    // open var drawBarShadowOffsetEnabled = false
     
     /// if set to true, a shadow offset is drawn on each highlight bar
-    open var drawHighlightShadowOffsetEnabled = false
+    // open var drawHighlightShadowOffsetEnabled = false
     
     internal var _renderers = [DataRenderer]()
     

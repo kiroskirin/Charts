@@ -204,18 +204,18 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
     }
     
     /// if set to true, a shadow offset is drawn on each bar
-    open var drawBarShadowOffsetEnabled: Bool
-        {
-        get { return (renderer as! CombinedChartRenderer!).drawBarShadowOffsetEnabled }
-        set { (renderer as! CombinedChartRenderer!).drawBarShadowOffsetEnabled = newValue }
-    }
-    
-    /// if set to true, a shadow offset is drawn on each bar
-    open var drawHighlightShadowOffsetEnabled: Bool
-        {
-        get { return (renderer as! CombinedChartRenderer!).drawHighlightShadowOffsetEnabled }
-        set { (renderer as! CombinedChartRenderer!).drawHighlightShadowOffsetEnabled = newValue }
-    }
+//    open var drawBarShadowOffsetEnabled: Bool
+//        {
+//        get { return (renderer as! CombinedChartRenderer!).drawBarShadowOffsetEnabled }
+//        set { (renderer as! CombinedChartRenderer!).drawBarShadowOffsetEnabled = newValue }
+//    }
+//    
+//    /// if set to true, a shadow offset is drawn on each bar
+//    open var drawHighlightShadowOffsetEnabled: Bool
+//        {
+//        get { return (renderer as! CombinedChartRenderer!).drawHighlightShadowOffsetEnabled }
+//        set { (renderer as! CombinedChartRenderer!).drawHighlightShadowOffsetEnabled = newValue }
+//    }
     
     /// - returns: `true` if drawing values above bars is enabled, `false` ifnot
     open var isDrawValueAboveBarEnabled: Bool { return (renderer as! CombinedChartRenderer!).drawValueAboveBarEnabled }
@@ -248,8 +248,8 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
     open var isDrawRoundedBarEnabled: Bool { return drawRoundedBarEnabled }
     
     /// - returns: `true` if shadow offset bars is enabled, `false` ifnot
-    open var isDrawBarShadowOffsetEnabled: Bool { return drawBarShadowOffsetEnabled }
+    // open var isDrawBarShadowOffsetEnabled: Bool { return drawBarShadowOffsetEnabled }
     
     /// - returns: `true` if highlight shadow offset bars is enabled, `false` ifnot
-    open var isDrawHighlightShadowOffsetEnabled: Bool { return drawHighlightShadowOffsetEnabled }
+    // open var isDrawHighlightShadowOffsetEnabled: Bool { return drawHighlightShadowOffsetEnabled }
 }
